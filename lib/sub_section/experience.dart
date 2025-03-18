@@ -14,27 +14,39 @@ class ExperiencePage extends StatefulWidget {
 class _ExperiencePageState extends State<ExperiencePage> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        WidgetHelper.headerUi('Explore My','Experience'),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            skillSection('Frontend Development',TextHelper.frontendSkills),
-            skillSection('Backend Development',TextHelper.backEndSkills)
-          ],
-        )
-      ],
+    double screenWidth = MediaQuery.of(context).size.width;
+    return SizedBox(
+      width: screenWidth - screenWidth * 0.13,
+      child: Column(
+        children: [
+          WidgetHelper.headerUi('Explore My', 'Experience'),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: EdgeInsets.all(50.0),
+                child: skillSection('Frontend Development',
+                    TextHelper.frontendSkills, screenWidth),
+              ),
+              Padding(
+                padding: EdgeInsets.all(8.0),
+                child: skillSection('Backend Development',
+                    TextHelper.backEndSkills, screenWidth),
+              ),
+            ],
+          )
+        ],
+      ),
     );
   }
 
-  skillSection(String skillTitle, List<String> list) {
+  skillSection(String skillTitle, List<String> list, double screenWidth) {
     return Container(
       //height: 500,
       alignment: Alignment.topRight,
-      width: MediaQuery.of(context).size.width / 2 - 200,
-      padding: const EdgeInsets.all(14.0),
+      width: screenWidth / 2 - screenWidth * 0.13,
+      padding: const EdgeInsets.all(12.0),
       decoration: BoxDecoration(
         border: Border.all(color: ColorsHelper.greyColor, width: 1),
         borderRadius: BorderRadius.circular(25.00),
@@ -62,42 +74,36 @@ class _ExperiencePageState extends State<ExperiencePage> {
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   childAspectRatio: 4.0,
-                  // mainAxisSpacing: 10.0,
-                  // crossAxisSpacing: 10.0
                 ),
                 itemBuilder: (context, index) {
-                  return Container(
-                  //  color: Colors.amber,
-                    child: Row(
-                       crossAxisAlignment: CrossAxisAlignment.start,
-                      // mainAxisAlignment: MainAxisAlignment.cent,
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Image.asset(
-                          'assets/checkmark.png',
-                          height: 25,
-                        ),
-                        SizedBox(
-                          width: 7,
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                             list[index],
-                              style: GoogleFonts.oswald(
-                                  color: Colors.black,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w600),
-                            ),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            Text("Experienced")
-                          ],
-                        )
-                      ],
-                    ),
+                  return Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Image.asset(
+                        'assets/checkmark.png',
+                        height: 25,
+                      ),
+                      SizedBox(
+                        width: 7,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            list[index],
+                            style: GoogleFonts.oswald(
+                                color: Colors.black,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w600),
+                          ),
+                          SizedBox(
+                            height: 5,
+                          ),
+                          Text("Experienced")
+                        ],
+                      )
+                    ],
                   );
                 },
               ),
@@ -107,6 +113,4 @@ class _ExperiencePageState extends State<ExperiencePage> {
       ),
     );
   }
-
-
 }

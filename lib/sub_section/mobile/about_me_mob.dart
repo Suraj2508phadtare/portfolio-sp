@@ -8,10 +8,7 @@ class AboutScreenMob extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
     return SizedBox(
-      // height: 500,
-      width:screenWidth,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -38,189 +35,29 @@ class AboutScreenMob extends StatelessWidget {
                   height: 200,
                 ),
               ),
-              SizedBox(height: 30,),
+              SizedBox(
+                height: 30,
+              ),
               Flexible(
                 child: Column(
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                     mainAxisSize: MainAxisSize.max,
+                    Wrap(
+                      // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      // mainAxisSize: MainAxisSize.max,
                       children: [
-                        Container(
-                          width: screenWidth*0.25,
-                          padding: EdgeInsets.all(12.0),
-                          decoration: BoxDecoration(
-                              border: Border.all(color: ColorsHelper.greyColor),
-                              borderRadius: BorderRadius.circular(25.00)),
-                          child: Column(
-                            children: [
-                              Image.asset(
-                                'assets/experience.png',
-                                height: 40,
-                              ),
-                              SizedBox(
-                                height: 5,
-                              ),
-                              Text(
-                                "Experience",
-                                style: GoogleFonts.oswald(
-                                    color: ColorsHelper.blackColor,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.w400),
-                              ),
-                              SizedBox(
-                                height: 5,
-                              ),
-                              Text(
-                                "3+ years",
-                                style: GoogleFonts.oswald(
-                                    fontSize: 18,
-                                    color: ColorsHelper.greyColor,
-                                    fontWeight: FontWeight.w300),
-                              ),
-                              SizedBox(
-                                height: 5,
-                              ),
-                              Wrap(
-                                alignment: WrapAlignment.center,
-                                children: [
-                                  Text(
-                                    "Mobile ",
-                                    style: GoogleFonts.oswald(
-                                      fontSize: 18,
-                                      color: ColorsHelper.greyColor,
-                                      fontWeight: FontWeight.w300,
-                                    ),
-                                  ),
-                                  Text(
-                                    "Application ",
-                                    style: GoogleFonts.oswald(
-                                      fontSize: 18,
-                                      color: ColorsHelper.greyColor,
-                                      fontWeight: FontWeight.w300,
-                                    ),
-                                  ),
-                                  Text(
-                                    "Development",
-                                    style: GoogleFonts.oswald(
-                                      fontSize: 18,
-                                      color: ColorsHelper.greyColor,
-                                      fontWeight: FontWeight.w300,
-                                    ),
-                                  ),
-                                ],
-                              )
-                            ],
-                          ),
-                        ),
-                        Container(
-                          width: screenWidth*0.25,
-                          padding: EdgeInsets.all(12.0),
-                          decoration: BoxDecoration(
-                              border: Border.all(color: ColorsHelper.greyColor),
-                              borderRadius: BorderRadius.circular(25.00)),
-                          child: Column(
-                            children: [
-                              Image.asset(
-                                'assets/education.png',
-                                height: 40,
-                              ),
-                              SizedBox(
-                                height: 5,
-                              ),
-                              Text(
-                                "Education",
-                                style: GoogleFonts.oswald(
-                                    color: ColorsHelper.blackColor,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.w400),
-                              ),
-                              SizedBox(
-                                height: 5,
-                              ),
-                              // Text(
-                              //   "Bachelor of Technology",
-                              //   style: GoogleFonts.oswald(
-                              //       fontSize: 18,
-                              //       color: ColorsHelper.greyColor,
-                              //       fontWeight: FontWeight.w300),
-                              // ),
-                               Wrap(
-                                alignment: WrapAlignment.center,
-                                children: [
-                                  Text(
-                                    "Bachelor ",
-                                    style: GoogleFonts.oswald(
-                                      fontSize: 18,
-                                      color: ColorsHelper.greyColor,
-                                      fontWeight: FontWeight.w300,
-                                    ),
-                                  ),
-                                  Text(
-                                    "of ",
-                                    style: GoogleFonts.oswald(
-                                      fontSize: 18,
-                                      color: ColorsHelper.greyColor,
-                                      fontWeight: FontWeight.w300,
-                                    ),
-                                  ),
-                                  Text(
-                                    "Technology",
-                                    style: GoogleFonts.oswald(
-                                      fontSize: 18,
-                                      color: ColorsHelper.greyColor,
-                                      fontWeight: FontWeight.w300,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(
-                                height: 5,
-                              ),
-                        
-                                      Wrap(
-                                alignment: WrapAlignment.center,
-                                children: [
-                                  Text(
-                                    "Computer ",
-                                    style: GoogleFonts.oswald(
-                                      fontSize: 18,
-                                      color: ColorsHelper.greyColor,
-                                      fontWeight: FontWeight.w300,
-                                    ),
-                                  ),
-                                  Text(
-                                    "Science ",
-                                    style: GoogleFonts.oswald(
-                                      fontSize: 18,
-                                      color: ColorsHelper.greyColor,
-                                      fontWeight: FontWeight.w300,
-                                    ),
-                                  ),
-                                  Text(
-                                    "And ",
-                                    style: GoogleFonts.oswald(
-                                      fontSize: 18,
-                                      color: ColorsHelper.greyColor,
-                                      fontWeight: FontWeight.w300,
-                                    ),
-                                  ),
-                                   Text(
-                                    "Engineering",
-                                    style: GoogleFonts.oswald(
-                                      fontSize: 18,
-                                      color: ColorsHelper.greyColor,
-                                      fontWeight: FontWeight.w300,
-                                    ),
-                                  ),
-                                ],
-                              )
-                                 // ],
-                                //),
-                              //)
-                            ],
-                          ),
-                        )
+                        containAbout(
+                            // screenWidth,
+                            'assets/experience.png',
+                            'Experience',
+                            '3+ years',
+                            'Mobile Application Development'),
+                        SizedBox(height: 25, width: 25),
+                        containAbout(
+                            // screenWidth,
+                            'assets/experience.png',
+                            'Education',
+                            'Bachelor of Technology',
+                            'Computer Science And Engineering'),
                       ],
                     ),
                     SizedBox(
@@ -234,6 +71,64 @@ class AboutScreenMob extends StatelessWidget {
                 ),
               ),
             ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  // 'assets/experience.png',
+  // Experience
+  // 3+ years
+  // Mobile Application Development
+  Widget containAbout(
+      String imageUrl, String mainText, String subText, String lastText) {
+    return Container(
+      width: 180,
+      padding: EdgeInsets.all(12.0),
+      decoration: BoxDecoration(
+          border: Border.all(color: ColorsHelper.greyColor),
+          borderRadius: BorderRadius.circular(25.00)),
+      child: Column(
+        children: [
+          Image.asset(
+            imageUrl,
+            height: 40,
+          ),
+          SizedBox(
+            height: 5,
+          ),
+          Text(
+            mainText,
+            style: GoogleFonts.oswald(
+                color: ColorsHelper.blackColor,
+                fontSize: 20,
+                fontWeight: FontWeight.w400),
+          ),
+          SizedBox(
+            height: 5,
+          ),
+          Text(
+            subText,
+            style: GoogleFonts.oswald(
+                fontSize: 18,
+                color: ColorsHelper.blackColor,
+                fontWeight: FontWeight.w300),
+          ),
+          SizedBox(
+            height: 5,
+          ),
+          RichText(
+            text: TextSpan(
+              text: lastText,
+              style: GoogleFonts.oswald(
+                fontSize: 18,
+                color: ColorsHelper.greyColor,
+                fontWeight: FontWeight.w300,
+              ),
+            ),
+            softWrap: true,
+            textAlign: TextAlign.center,
           ),
         ],
       ),

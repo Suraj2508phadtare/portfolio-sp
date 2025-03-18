@@ -23,7 +23,7 @@ class WidgetHelper {
 
   static outlinedButtonHelper(VoidCallback callback, String text, Color color) {
     return OutlinedButton(
-        onPressed: () => callback,
+        onPressed: () => callback(),
         style: OutlinedButton.styleFrom(
           backgroundColor: color,
             padding: EdgeInsets.symmetric(horizontal: 30, vertical: 16),
